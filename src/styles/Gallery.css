@@ -1,0 +1,109 @@
+/* Gallery Section Styles */
+.gallery {
+  padding: 80px 20px;
+  background-color: var(--primary-white);
+}
+
+.gallery-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 50px;
+}
+
+.gallery-item {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-hover);
+}
+
+.gallery-image-placeholder {
+  width: 100%;
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, var(--primary-rose) 0%, var(--primary-beige) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-image-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(212, 175, 55, 0.1) 50%, transparent 70%);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.gallery-emoji {
+  font-size: 64px;
+  display: block;
+  transition: var(--transition);
+  z-index: 1;
+}
+
+.gallery-item:hover .gallery-emoji {
+  transform: scale(1.2) rotate(10deg);
+}
+
+.gallery-image-placeholder p {
+  color: var(--secondary-dark);
+  font-weight: 600;
+  font-size: 16px;
+  z-index: 1;
+  text-align: center;
+}
+
+.gallery-caption {
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+  color: var(--secondary-dark);
+  background: var(--secondary-light);
+  font-size: 14px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .gallery {
+    padding: 40px 20px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+  }
+
+  .gallery-emoji {
+    font-size: 48px;
+  }
+
+  .gallery-image-placeholder p {
+    font-size: 13px;
+  }
+}
